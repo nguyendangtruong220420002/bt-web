@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="margin-top: 50px; margin-left: 40%;">
+    <div style="width: 310px; background-color: khaki; border-radius: 5px; border: 5px solid seagreen;">
+        <span id="mili" style="font-size: 100px; color: rgb(1, 18, 117);">00:</span>
+        <span id="second" style="font-size: 100px; color: darkgoldenrod; ">00</span>
+        <br>
+        <button id="start" style="width: 100px; height: 50px; background-color: aquamarine ; border: blueviolet; border-radius: 1px; font-size: 20px;">Chay</button>
+        <button id="stopp" style="width: 100px; height: 50px; background-color: aquamarine ; border: blueviolet; border-radius: 1px; font-size: 20px;">Dung</button>
+        <button id="bye" style="width: 100px; height: 50px; background-color: aquamarine ; border: blueviolet; border-radius: 1px; font-size: 20px;">Reset</button>
+
+    </div>
+    <script>
+        var start = document.getElementById('start');
+        console.log(start);
+        var stopp = document.getElementById('stopp');
+        console.log(stopp);
+        var bye = document.getElementById('bye');
+        console.log(bye);
+        var mili = document.getElementById('mili');
+        var second = document.getElementById('second');
+        var mi = 0;
+        var se = 0;
+        var timeout = null;
+
+        start.onclick = () => {
+            setInterval(() => {
+                mili.innerText = mi++;
+                second.innerText = se;
+                if (mi == 100) {
+                    mi = 0;
+                    se++;
+                }
+            }, 10)
+
+        }
+
+        stopp.onclick = () => {
+            clearInterval(timeout)
+
+        }
+
+        bye.onclick = () => {
+            clearInterval(timeout)
+            mi = 0;
+            se = 0;
+            mili.innerText = '00';
+            second.innerText = '00'
+
+        }
+    </script>
+</body>
+
+</html>
